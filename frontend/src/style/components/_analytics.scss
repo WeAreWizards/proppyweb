@@ -1,0 +1,49 @@
+.proposal-analytics {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  h3 {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid color(grays, light);
+  }
+
+  table {
+    width: 100%;
+    border: 1px solid color(grays, light);
+
+    td, th {
+      border: 1px solid color(grays, light);
+      padding: 1rem;
+    }
+
+    th {
+      font-weight: bold;
+    }
+  }
+
+  .quick-view-table {
+    tr td:first-of-type {
+      font-weight: bold;
+    }
+
+    tr td:nth-of-type(2) {
+      text-align: center;
+      width: 50%;
+    }
+  }
+
+  .note {
+    display: inline-block;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  a {
+    cursor: pointer;
+  }
+
+  .empty {
+    text-align: center;
+  }
+}

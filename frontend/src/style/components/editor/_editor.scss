@@ -1,0 +1,70 @@
+
+#editor {
+  h1 {
+    text-align: center;
+  }
+
+  [contenteditable="true"] {
+    min-height: 33px;
+  }
+
+  [contenteditable="true"]:active,
+  [contenteditable="true"]:hover,
+  [contenteditable="true"]:focus {
+    border: none;
+    outline: 0;
+    cursor: text;
+  }
+
+  // Gives placeholder capabilities to p/h*
+  [contenteditable="true"]:empty:before {
+    content: attr(placeholder);
+    display: block; // For Firefox
+    opacity: 0.5;
+  }
+
+  .proposal-payment-setup {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-top: 2rem;
+
+    p, h3 {
+      margin-top: 0;
+    }
+    h3 {
+      margin-bottom: 1rem;
+    }
+
+    .inline-input-value {
+      margin-left: 0;
+      padding: 0 0.5rem;
+      font-weight: bold;
+    }
+
+    .inline-input {
+      min-width: inherit;
+      margin-left: 0;
+      width: auto;
+      font-weight: bold;
+    }
+  }
+}
+
+// embed dialog
+.embed-error {
+  word-break: break-all;
+}
+
+// Point of insertion for drag and drop
+.block__content_insertion {
+  height: 0px;
+  overflow: visible;
+  position: absolute;
+  z-index: z(dropdown);
+
+  div {
+    height: 3px;
+    width: 200px;
+    background: color(primary, base);
+  }
+}

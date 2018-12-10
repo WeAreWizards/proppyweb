@@ -1,0 +1,82 @@
+// Contains all the styling for the sidebar in the dashboard that contains
+// the state and number of proposals etc
+
+
+@mixin set-icon-color-status {
+  &.status-active [class^="icon-"] {
+    color: color(status, active);
+  }
+  &.status-drafts [class^="icon-"] {
+    color: color(status, draft);
+  }
+  &.status-sent [class^="icon-"] {
+    color: color(status, sent);
+  }
+  &.status-won [class^="icon-"] {
+    color: color(status, won);
+  }
+  &.status-lost [class^="icon-"] {
+    color: color(status, lost);
+  }
+  &.status-trash [class^="icon-"] {
+    color: color(status, trash);
+  }
+  &.status-templates [class^="icon-"] {
+    color: color(status, template);
+  }
+}
+
+
+.dashboard__sidebar {
+  background-color: color(grays, dark);
+  color: color(grays, light);
+}
+
+.dashboard__sidebar ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+.dashboard__sidebar__status {
+  padding: 2rem;
+  padding-bottom: 0;
+}
+
+.dashboard__sidebar__other {
+  border-top: 1px solid color(grays, base);
+  padding: 2rem;
+  padding-top: 1rem;
+}
+
+.dashboard__sidebar ul li {
+  height: 40px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  // There to avoid making the border jump
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.1s ease-in;
+
+  [class^="icon-"], [class*=" icon-"] {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+
+  &:hover {
+    border-bottom: 2px solid color(primary, base);
+    color: white;
+    @include set-icon-color-status;
+  }
+}
+
+.dashboard__sidebar li.active {
+  color: white;
+  border-bottom: 2px solid color(primary, base);
+  font-weight: bold;
+  @include set-icon-color-status;
+}
+
+.dashboard__sidebar__number {
+  font-size: fontsize(small);
+  line-height: 2;
+}

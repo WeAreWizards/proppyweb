@@ -1,0 +1,93 @@
+.proposal__container {
+  margin-top: 5rem;
+}
+
+@media screen and (max-width: 900px) {
+  .proposal__container {
+    margin-top: 2rem;
+  }
+}
+
+.proposal__container--has-cover {
+  margin-top: 0;
+}
+
+// Do all modifications to a proposal general layout on that class
+.proposal-content {
+  margin-top: 2rem;
+  // use padding instead of margin for some firefox issue where margin
+  // does not appear
+  padding-bottom: 5rem;
+}
+
+.proposal-title {
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #ccc;
+  margin: 0 auto;
+  max-width: $width-editor;
+  min-width: 250px;
+  width: calc(100% - #{$comments-width} - #{$toc-width});
+}
+
+@media screen and (max-width: 900px) {
+  .proposal-title {
+    width: calc(100% - 2rem);
+    padding: 0 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+.proposal-payment {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 4px; // same as buttons
+  margin: 1rem 0rem;
+
+  &--setup {
+    border: 2px solid #ccc;
+  }
+
+  &--paid {
+    border: 2px solid #ccc;
+
+    > p {
+      margin-top: 0;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .icon-payment {
+      margin-right: 1rem;
+      color: color(text);
+      font-size: 2rem;
+      vertical-align: middle;
+    }
+
+    .icon-check {
+      margin-left: 1rem;
+      color: color(primary, base);
+      font-size: 3rem;
+      vertical-align: sub;
+    }
+  }
+
+  h3 {
+      margin-top: 0;
+  }
+
+  &__total {
+    margin-bottom: .5rem;
+  }
+
+  .stripe-button-el {
+    font-size: 1.5rem;
+
+    .icon-payment {
+      display: inline-block;
+      margin-right: 1rem;
+      font-size: 2rem;
+      vertical-align: bottom;
+    }
+  }
+}

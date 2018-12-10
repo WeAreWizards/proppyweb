@@ -1,0 +1,16 @@
+// The classic alert as seen in rails etc, text with some rounded borders
+// No background colors by default
+
+.alert {
+  font-weight: bold;
+  border: 3px solid transparent;
+  border-radius: 2px;
+  padding: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+
+.alert--error {
+  color: color(error);
+  border-color: color(error);
+}

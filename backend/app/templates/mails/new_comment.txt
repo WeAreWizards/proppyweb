@@ -1,0 +1,7 @@
+{{ client }} posted a new comment on {{ title }}
+
+{{ comment }}
+
+Click on the following link to go to your published proposal: {{ base_url }}/p/{{ share_uid }}
+
+{% include "mails/partials/twitter_footer.txt" %}

@@ -1,0 +1,129 @@
+$global-lineheight: 28px !default;
+
+.period-toggle {
+  span {
+    display: inline-block;
+    padding: 0.25rem 1rem;
+    border: 2px solid color(primary, base);
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+      background-color: color(primary, base);
+      color: white;
+    }
+  }
+
+  &--active {
+    background-color: color(primary, base);
+    color: white;
+  }
+
+  .monthly {
+    border-right: none;
+  }
+
+  .yearly {
+  }
+}
+
+.plans {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  margin-top: 2rem;
+
+  .plan {
+    display: inline-block;
+    border: 3px solid #e8e8e8;
+    border-radius: 5px;
+    padding: 1rem;
+    text-align: center;
+    width: 210px;
+    position: relative;
+
+    &__name {
+      font-size: 1.25rem;
+      display: block;
+    }
+
+    &__price {
+      position: relative;
+
+      &__number {
+        font-size: 50px;
+        font-weight: bold;
+        letter-spacing: -2px;
+      }
+
+      &__time {
+        font-size: 14px;
+      }
+
+      &__currency {
+        font-size: 28px;
+        font-weight: bold;
+      }
+    }
+
+    .tick {
+      color: color(primary, base);
+      font-size: 2rem;
+      vertical-align: sub;
+    }
+
+    hr {
+      margin: 1rem;
+      background-color: #dedede;
+      border: none;
+      height: 1px;
+    }
+
+    ul {
+      margin: 0;
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+
+    &__cta {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    &--active {
+      border: 3px solid color(primary, base);
+
+      &:before {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 64px 64px 0 0;
+        border-color: color(primary, base) transparent transparent transparent;
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: white;
+        content: "";
+      }
+
+      &:after {
+        color: white;
+        content: "✔";
+        position: absolute;
+        left: 9px;
+        top: 6px;
+        text-shadow: 0 0 2px #37c5b6;
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+.cancel-plan {
+  margin-top: 2rem;
+}
+
+.cancel-plan-text {
+  margin-bottom: 3rem;
+}

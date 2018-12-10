@@ -1,0 +1,84 @@
+@charset "utf-8";
+
+@lost flexbox no-flex;
+
+// Utils
+// -> contains mixins to be used by base/components/layout/pages
+// and all the variables (colors etc)
+@import "utils/forms"; // remove
+// Contains colours, z-indexes, fontsizes etc
+@import "utils/variables";
+
+// Vendor
+// -> contains 3rd party css
+@import "vendor/normalize";
+// Spinkit
+@import "vendor/three-bounce";
+
+$joyride-color: color(primary, base);
+$joyride-skip-button-color: color(grays, base);
+$joyride-close-visible: false;
+@import "vendor/react-joyride";
+
+// Base
+// -> contains global things such as typography or common class
+@import "base/base";
+@import "base/fonts";
+@import "base/icons";
+@import "base/typography";
+@import "base/print";
+
+// Components
+// -> contains css for components (for example a react component would be one)
+@import "components/app-header";
+@import "components/text-input";
+@import "components/inline-input";
+@import "components/form-container";
+@import "components/button";
+@import "components/alert";
+@import "components/notifications";
+@import "components/label";
+@import "components/dashboard-search";
+@import "components/dashboard-sidebar";
+@import "components/proposal-item";
+@import "components/speech-bubble";
+@import "components/tag";
+@import "components/tabs";
+@import "components/popover";
+@import "components/dialog";
+@import "components/overlay";
+@import "components/divider";
+@import "components/comments";
+@import "components/block";
+@import "components/proposal";
+@import "components/tables";
+@import "components/signature-block";
+@import "components/form";
+@import "components/cover";
+@import "components/file-uploader";
+@import "components/table-of-contents";
+@import "components/email-form";
+@import "components/template";
+@import "components/font-picker";
+@import "components/plans";
+@import "components/editor/editor";
+@import "components/editor/proposal-metadata";
+@import "components/editor/wysiwyg-toolbar";
+@import "components/editor/block-changer";
+@import "components/editor/section-importer";
+@import "components/editor/embed";
+@import "components/select";
+@import "components/analytics";
+@import "components/integrations";
+
+
+// Pages
+@import "pages/dashboard";
+@import "pages/editor";
+@import "pages/preview";
+@import "pages/settings";
+@import "pages/shared";
+@import "pages/global-error";
+@import "pages/share-settings";
+@import "pages/analytics";
+@import "pages/signup";

@@ -1,0 +1,20 @@
+// Tweaks to the TextForm component
+
+.form--inline {
+  display: flex;
+  margin-bottom: 2rem;
+
+  .text-input {
+    display: inline-block;
+    margin-right: 1rem;
+    flex: 50%;
+    margin-bottom: 0 !important;
+    margin-left: 0;
+  }
+
+  button {
+    // magically fix the button in the right place
+    // position: fixed;
+    margin: auto !important;
+  }
+}

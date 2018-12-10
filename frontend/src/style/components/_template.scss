@@ -1,0 +1,73 @@
+// Templates part in the dashboard
+
+.template-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .template-item {
+    width: 30%;
+    text-align: center;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+
+    &__pic {
+      width: 100%;
+      height: 145px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    &__title {
+      display: block;
+      position: absolute;
+      color: white;
+      text-align: center;
+      font-size: 1.12rem;
+      font-weight: bold;
+      width: 100%;
+      bottom: 1rem;
+    }
+
+    &__actions {
+      width: 100%;
+      display: block;
+      margin-top: 0.5rem;
+
+      a {
+        color: inherit;
+      }
+    }
+
+    .template-action {
+      display: inline-block;
+      width: 50%;
+      cursor: pointer;
+
+      [class^="icon-"], [class*=" icon-"] {
+        display: inline-block;
+        margin-right: 0.25rem;
+        color: color(primary, base);
+      }
+
+      &:nth-child(1) {
+        border-right: 1px solid color(grays, light);
+        text-align: left;
+      }
+      &:nth-child(2) {
+        border-left: 1px solid color(grays, light);
+        text-align: right;
+      }
+
+      &:hover {
+        color: color(primary, base);
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

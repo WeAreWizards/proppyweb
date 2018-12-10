@@ -1,0 +1,129 @@
+
+.proppy-select {
+  display: inline-block;
+  position: relative;
+
+  input {
+    padding: 0 1rem;
+    min-width: 150px;
+    height: 32px;
+    border: 0;
+    outline: none;
+    border-bottom: 1px dashed color(primary, base);
+  }
+
+  input::placeholder {
+    color: color(text);
+    opacity: 1;
+  }
+
+  .icon-arrow-down {
+    position: absolute;
+    bottom: 2px;
+    right: 0;
+    cursor: pointer;
+    color: color(text);
+  }
+
+  &__options {
+    width: 100%;
+    position: absolute;
+    box-shadow: 0.05em 0.01em 0.5em rgba(0, 0, 0, 0.2);
+    min-width: 200px;
+    background: white;
+    margin-top: 5px;
+    z-index: z(above);
+    max-height: 300px;
+    overflow-y: auto;
+
+    ul {
+      list-style-type: none;
+      text-align: left;
+      margin: 0;
+    }
+
+    li {
+      cursor: pointer;
+      border-bottom: 1px solid color(grays, light);
+      padding: 0.5rem;
+      margin: 0;
+    }
+
+    .option--active {
+      background: color(primary, base);
+      color: white;
+
+      [class^="icon-"], [class*=" icon-"] {
+        color: white;
+      }
+    }
+
+
+    [class^="icon-"], [class*=" icon-"] {
+      font-style: normal;
+      color: color(primary, base);
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  .basic-select-choice {
+    color: color(text);
+    border-bottom: 1px dashed color(primary, base);
+    height: 32px;
+    padding: 0 1rem;
+
+    &:hover {
+      color: color(primary, base);
+    }
+  }
+
+}
+
+.proppy-select--currency {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 3rem;
+  font-size: 1.25rem;
+
+  input, .proppy-select__options {
+    width: 100%;
+  }
+}
+
+.proppy-select--font-picker{
+  display: block;
+  margin-top: 5px;
+  font-size: 1.25rem;
+
+  input, .proppy-select__options {
+    width: 100%;
+  }
+}
+
+.proppy-select--status {
+  display: inline-block;
+  width: 130px;
+  text-align: left;
+
+  .proppy-select__options {
+    width: 130px;
+    min-width: 130px;
+  }
+
+  li {
+    color: color(text);
+  }
+
+  .option--active {
+    color: white;
+  }
+
+  .icon-arrow-down {
+    position: absolute;
+    top: 2px;
+  }
+}
+

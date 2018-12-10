@@ -1,0 +1,141 @@
+// The blocks in the editor/preview/shared
+.block {
+  position: relative;
+  margin: 0 auto;
+  max-width: $width-editor;
+  min-width: 250px;
+  width: 80%;
+  transition: width 0.3s ease;
+
+  &__actions, &__comment {
+    display: block;
+    position: absolute;
+    top: 0;
+    height: 100%;
+
+    [class^="icon-"], [class*=" icon-"] {
+      font-size: 2rem;
+      display: inline-block;
+      color: color(grays, light);
+    }
+  }
+
+  &--divider {
+    .block__actions {
+      top: 26px;
+    }
+  }
+
+  &__actions {
+    left: -120px;
+    width: 120px;
+  }
+
+  &__comment {
+    padding-left: 1rem;
+    width: 100px;
+    right: -100px;
+  }
+
+  .block-action {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    padding: 5px;
+    padding-top: 0;
+  }
+
+  .block-action-2 {
+    right: 50px;
+  }
+
+  .block-action-3 {
+    right: 90px;
+  }
+
+  .icon-delete:hover {
+    color: color(dangerous);
+  }
+
+  .icon-move:hover, .icon-add-comment:hover, .icon-bubble-full:hover {
+    color: color(primary, base) !important;
+  }
+
+  .speech-bubble {
+    cursor: pointer;
+  }
+}
+
+.block-being-dragged {
+    opacity: 0.75;
+}
+
+// same as block
+.block-container-highlight {
+  margin: 0 auto;
+  max-width: $width-editor;
+  min-width: 250px;
+
+  .block {
+    width: 100%;
+  }
+}
+
+.block-being-dragged, .block--hovering-actions {
+  .block-container-highlight, p, li, h1, h2, h3, h4, figure, table, footer,
+  [contenteditable]:focus, .proposal-divider {
+    background-color: color(editor-highlight, actions);
+  }
+}
+
+.block--hovering-delete {
+  .block-container-highlight, p, li, h1, h2, h3, h4, figure, table, footer,
+  [contenteditable]:focus, .proposal-divider {
+    background-color: color(editor-highlight, delete);
+  }
+}
+
+
+.block__comment--open {
+  display: block;
+  width: $comments-width;
+  right: -$comments-width;
+}
+
+
+.proposal-content--comments-open .block-container-highlight {
+  width: calc(100% - 700px);
+
+  .block-container-highlight {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .block-container-highlight {
+    width: calc(100% - #{$comments-width});
+
+    .block-container-highlight {
+      width: 100%;
+    }
+  }
+
+  .proposal-content--comments-open .block-container-highlight {
+    width: calc(100% - 600px);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .block-container-highlight {
+    width: 100% !important;
+  }
+
+  .block {
+    padding: 0 1rem;
+  }
+
+  .block__comment, .block__actions {
+    width: 0;
+    display: none;
+  }
+}

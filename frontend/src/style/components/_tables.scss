@@ -1,0 +1,320 @@
+// fancy-table is general styling
+// TO remove?
+.fancy-table {
+  width: 100%;
+  overflow: auto;
+  overflow-y: hidden;
+  text-align: left;
+  white-space: nowrap;
+
+  table {
+    width: 100%;
+  }
+
+  h3, h4 {
+    margin-top: 0;
+  }
+
+  .right-align {
+    text-align: right;
+    vertical-align: middle;
+  }
+
+  .subtotal {
+    vertical-align: middle;
+  }
+
+  thead {
+    border-bottom: 1px solid color(grays, dark);
+
+    th {
+      padding: 0.5rem;
+    }
+  }
+
+  tbody tr {
+    border-bottom: 1px solid color(grays, base);
+
+    td {
+      padding: 0.5rem;
+    }
+  }
+
+  tfoot tr td {
+    padding: 0.5rem;
+  }
+
+  tfoot {
+    td {
+      font-weight: bold;
+    }
+  }
+
+  &__totals {
+    border-top: 1px solid color(grays, base);
+    border-bottom: 1px solid color(grays, base);
+
+    table {
+      margin-top: 0;
+    }
+
+    tbody tr {
+      border-bottom: none;
+    }
+
+    td {
+      font-weight: bold;
+      font-size: 1.56rem; // same as section header of tables
+    }
+  }
+
+  &--no-top-border {
+    border-top: 0;
+  }
+}
+
+.fancy-table--editable {
+  .fancy-table--editable__cost-row {
+    input, textarea {
+      padding: 0 10px;
+      border: 1px solid color(grays, light);
+    }
+  }
+
+  .inline-input-value, .inline-input {
+    margin: 0;
+    padding: 0;
+  }
+
+  .right-align {
+    // fixed size for numbers on editable so they don't resize themselves
+    width: 130px;
+
+    input {
+      text-align: right;
+    }
+  }
+
+  textarea {
+    width: 100%;
+    resize: none;
+    overflow: hidden;
+    vertical-align: middle;
+    min-height: 35px; // same as the input, hardcoded
+    word-wrap: break-word;
+    line-height: 1.25;
+  }
+
+  .text-editable-cell, .number-editable-cell {
+    width: 100%;
+  }
+
+  .discount-row input:not(.inline-input) {
+    width: 90px;
+  }
+  .discount-row input {
+    margin-right: 0.5rem;
+  }
+
+  .primary-divider {
+    margin: 1rem 0;
+  }
+
+  tfoot tr {
+    height: 60px;
+  }
+
+  &__cost-row {
+    td {
+      &:last-of-type {
+        text-align: right;
+      }
+    }
+  }
+
+  &__row-actions {
+    width: 110px; // fixed width to avoid resize of the column when adding/removing rows
+    color: color(grays, light);
+
+    .icon-delete:hover {
+      color: color(dangerous);
+    }
+
+    .icon-up:hover, .icon-down:hover {
+      color: color(primary, base);
+    }
+  }
+
+  .row-action {
+    cursor: pointer;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+
+  &__add-row {
+    td {
+      text-align: center;
+      cursor: pointer;
+      font-family: $main-font;
+      font-size: 1rem;
+      font-weight: bold;
+      color: color(primary, base);
+    }
+  }
+
+  .proppy-select--currency {
+    margin: 1rem 0;
+
+    input {
+      padding: 0;
+    }
+  }
+}
+
+.fancy-table--render {
+  margin-top: 1rem;
+
+  .table-cell {
+    white-space: pre-wrap;
+    vertical-align: top;
+    min-width: 150px;
+  }
+
+  table thead tr {
+      th:nth-of-type(2) {
+        min-width: 150px;
+      }
+      th:nth-of-type(3) {
+        min-width: 150px;
+      }
+      th:nth-of-type(4) {
+        min-width: 180px;
+      }
+  }
+
+  td.row-description {
+    white-space: pre-wrap;
+  }
+
+  &.fancy-table__totals {
+    tr {
+      td {
+        font-weight: normal;
+      }
+
+      &:last-of-type {
+        td {
+          font-weight: bold;
+          width: 200px;
+        }
+      }
+    }
+  }
+}
+
+// about the whole thing, ie with subections
+.cost-table {
+  margin: 2rem 0;
+
+  &__section-title {
+    border: 0px;
+    font-size: $h4-font-size;
+    font-weight: bold;
+    outline-style: none;
+    width: 100%;
+  }
+
+  &__section {
+    // only on editor
+    &__actions {
+      margin: 1rem 0;
+
+      [class^="icon-"], [class*=" icon-"] {
+        display: inline-block;
+        margin-right: 0.5rem;
+      }
+
+      > div {
+        cursor: pointer;
+        display: inline-block;
+        padding-right: 1rem;
+        margin-right: 1rem;
+        border-right: 1px solid color(grays, base);
+
+        &:last-of-type {
+          border-right: none;
+        }
+      }
+
+      .cost-section-deleter:hover {
+        color: color(dangerous) !important;
+
+        [class^="icon-"], [class*=" icon-"] {
+          color: color(dangerous) !important;
+        }
+      }
+
+      .cost-section-mover:hover {
+        color: color(primary, base) !important;
+
+        [class^="icon-"], [class*=" icon-"] {
+          color: color(primary, base) !important;
+        }
+      }
+    }
+  }
+}
+
+.simple-table {
+  &__col-actions {
+    text-align: center;
+
+    // icon-down -> point to left
+    // icon-right -> point to right
+    .icon-down, .icon-up {
+      display: inline-block;
+      transform: rotate(90deg);
+    }
+  }
+
+  .fancy-table--editable__add-row {
+    border-bottom: 0;
+  }
+
+  &__add-col {
+    cursor: pointer;
+    width: 20px;
+    text-align: center;
+    color: color(primary, base);
+  }
+
+  &__col-headers {
+    padding: 0.5rem;
+  }
+
+  td {
+    vertical-align: top;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .fancy-table--render .fixed-table {
+    table-layout: auto;
+  }
+
+  .fancy-table--render td.row-description {
+    min-width: 150px;
+  }
+
+  .fancy-table--render table thead tr {
+    th:nth-of-type(2) {
+      width: auto;
+    }
+    th:nth-of-type(3) {
+      width: auto;
+    }
+    th:nth-of-type(4) {
+      width: auto;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+Hey there
+
+{{ username }} invited you to join their team ({{ company }}) in Proppy.
+
+Click on the following link to get started: {{ base_url }}/invites/{{ token }}
+
+Proppy is a web app that helps freelancers and agencies write beautiful and interactive proposals.
+
+{% include "mails/partials/twitter_footer.txt" %}

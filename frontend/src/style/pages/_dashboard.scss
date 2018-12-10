@@ -1,0 +1,43 @@
+// Dashboard
+#dashboard {
+  display: flex;
+  min-height: calc(100vh - #{$height-header} - #{$height-dashboard-search});
+
+  .dashboard__sidebar {
+    flex: 0 0 250px; // 250px wide and stays that way
+  }
+
+  .dashboard__content {
+    flex: 0 0 calc(100% - 250px - 2rem); // 700px wide and don't grow or shrink
+    margin: 0 auto;
+    padding: 4rem 0;
+    max-width: 800px;
+  }
+
+  .no-active-proposal {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
+
+
+// For all the little things in the dashboard that don't deserve their own
+// component
+
+.dashboard__search-container {
+  position: relative;
+
+  button {
+    position: absolute;
+    right: 4rem;
+    bottom: -27px;
+  }
+}
+
+.dashboard__header {
+  color: color(grays, base);
+  border-bottom: 2px solid color(grays, light);
+  padding-bottom: 1rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}

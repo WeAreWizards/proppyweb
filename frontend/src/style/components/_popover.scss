@@ -1,0 +1,36 @@
+
+// straight from medium right now. to change later
+@mixin popover($background: #31312F, $foreground: white, $arrow-towards: "bottom") {
+  position: absolute;
+  z-index: 7777;
+  color: $foreground;
+  display: inline-block;
+
+  &__inner {
+    background: $background;
+    border-radius: 5px;
+    padding: 5px 15px;
+    width: auto;
+  }
+
+  &__arrow-container {
+    position: absolute;
+    bottom: -10px;
+    margin-left: -10px;
+    left: 50%;
+  }
+
+  &__arrow {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: $background;
+    transform: rotate(45deg) scale(0.5);
+  }
+}
+
+// TODO: make popover a class not a ,mixin
+// and add --left, --right, --bottom, --top
+.popover {
+  @include popover;
+}

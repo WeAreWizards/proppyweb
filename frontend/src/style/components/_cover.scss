@@ -1,0 +1,104 @@
+// Cover image + logo
+.cover {
+  min-height: $cover-min-height;
+  max-height: $cover-max-height;
+  margin-bottom: 7rem;
+  color: white;
+  display: flex;
+  position: relative;
+
+  &--empty {
+    min-height: 0;
+    margin-bottom: 0;
+  }
+}
+
+.cover__image {
+  min-height: $cover-min-height;
+  max-height: $cover-max-height;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+
+  img {
+    width: 100%; // Force full width for the image
+    float: left;
+  }
+
+  [class^="icon-"], [class*=" icon-"] {
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+
+  &--empty {
+    background-color: color(grays, dark);
+  }
+
+  &--full {
+    .cover__image-clear {
+      opacity: 0;
+      transition: opacity linear 0.2s;
+    }
+
+    &:hover {
+      .cover__image-clear {
+        opacity: 1;
+      }
+    }
+  }
+
+  .size-recommended {
+    color: color(grays, base);
+  }
+
+  &__action {
+    position: absolute;
+    width: 220px;
+    right: 0;
+    background: rgba(0 , 0, 0, 0.6);
+    height: 100%;
+    max-height: $cover-max-height;
+    padding: 0 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .align-icons {
+      align-content: stretch;
+      width: 100%;
+    }
+  }
+}
+
+
+.cover__logo {
+  position: absolute;
+  left: calc(50% - 75px);
+  bottom: -75px;
+  width: $company-logo-size;
+  height: $company-logo-size;
+  background: white;
+  border-radius: 50%;
+
+  img {
+    position: relative;
+    border-radius: 50%;
+    width: $company-logo-size;
+    height: $company-logo-size;
+    padding: 7px;
+  }
+}
+
+.cover--editable {
+  .cover__logo {
+    cursor: pointer;
+    left: calc(50% - 75px);
+
+    img:hover {
+      opacity: 0.7;
+    }
+  }
+}

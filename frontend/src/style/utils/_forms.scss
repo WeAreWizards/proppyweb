@@ -1,0 +1,46 @@
+/*
+  FORM
+  ----
+
+  Contains styling for form inputs/labels, inputs with
+  errors etc
+*/
+
+/// Helper to set placeholder content for all the browser prefixes.
+/// Meant to be used on an input.
+///
+/// @group form
+/// @content placeholder css
+@mixin input-placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}
+
+
+/// Gets rid of browser styling for inputs
+/// and set a common base style
+///
+/// @group form
+@mixin reset-input {
+  // appearance not supported in current autoprefixer
+  // will be in the next version though
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  background: none;
+  box-shadow: none;
+  appearance: textfield;
+  box-sizing: border-box !important;
+  border-radius: 0;
+
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  font-weight: normal;
+
+  &:focus {
+    outline: none;
+  }
+}

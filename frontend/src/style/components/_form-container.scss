@@ -1,0 +1,32 @@
+// Layout etc for forms like the logged out ones: signup/
+
+.form-container {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+.form-container__title {
+  color: color(text);
+  margin-bottom: 4rem;
+}
+
+.form-container__content form {
+  margin: 0 auto;
+  margin-top: 4rem;
+  width: 500px;
+
+  .button {
+    margin-bottom: 0;
+  }
+
+  .text-input:last-of-type {
+    margin-bottom: 3rem;
+  }
+}
+
+form {
+  .text-input:last-of-type {
+    margin-bottom: 1rem;
+  }
+}

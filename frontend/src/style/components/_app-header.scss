@@ -1,0 +1,121 @@
+// The app header, present in both logged in and logged out pages
+// When logged in, contains additional sections (TODO)
+
+
+.header {
+  background: color(background);
+  line-height: $height-header;
+  height: $height-header;
+  lost-utility: clearfix;
+  border-bottom: 1px solid color(grays, light);
+
+  .unconfirmed {
+    color: color(dangerous);
+  }
+}
+
+.header .header__left {
+  lost-column: 1/2;
+
+  .header__part {
+
+    &.save-status {
+      border-right: 0;
+    }
+
+    .save-status--error {
+      color: color(dangerous);
+    }
+  }
+
+  .logo {
+      display: inline-block;
+      background-size: contain;
+      height: 40px;
+      vertical-align: middle;
+      margin-top: -4px;
+  }
+}
+
+.header .header__right {
+  lost-column: 1/2;
+  text-align: right;
+}
+
+.header .header-menu__dropdown {
+  padding-right: 1rem;
+  min-width: 180px;
+}
+
+
+.header .header__part {
+  display: inline-block;
+  padding: 0 1rem;
+
+  [class^="icon-"], [class*=" icon-"] {
+    display: inline-block;
+    margin-right: 0.5rem;
+    vertical-align: sub;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  .button {
+    margin-bottom: 5px;
+    font-size: 1rem;
+  }
+}
+
+.header .header-menu__option {
+  display: inline-block;
+  cursor: pointer;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  position: relative;
+}
+
+
+// We only have one dropdown so no need to be fancy with right etc
+.header .header__dropdown {
+  position: absolute;
+  right: 0;
+  text-align: center;
+  z-index: z(dropdown);
+  background: color(background);
+  width: 100%;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, .175);
+
+  // resets the ul
+  margin: 0;
+  list-style-type: none;
+
+  li {
+    color: color(primary, base);
+    line-height: 3rem;
+
+    &:hover {
+      background-color: color(primary, base);
+      color: white;
+      a {
+        color: white;
+      }
+    }
+
+    a {
+      display: block;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.header--fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: z(modal);
+}

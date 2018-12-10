@@ -1,0 +1,28 @@
+.shared {
+  .proposal-title h1 {
+    margin-bottom: 0;
+  }
+
+  .version {
+    color: color(grays, base);
+    font-weight: normal;
+    font-size: fontsize(large);
+  }
+
+  .icon-print {
+    cursor: pointer;
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+
+    &:hover {
+      color: color(primary, base)
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .icon-print {
+    display: none;
+  }
+}

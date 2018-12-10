@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es5",
+    "module": "commonjs",
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "noUnusedParameters": false,
+    "noUnusedLocals": false,
+    "sourceMap": true,
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "paths": {
+      "react": ["./node_modules/@types/react/index"]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

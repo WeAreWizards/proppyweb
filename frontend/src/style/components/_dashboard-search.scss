@@ -1,0 +1,39 @@
+// The search on the dashboard page
+
+
+.dashboard-search {
+  position: relative;
+
+  input {
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    appearance: none;
+    font-size: fontsize(large);
+    padding: 1.5rem;
+    padding-left: 4rem; // make space for search icon
+    height: $height-dashboard-search;
+    background: color(primary, light);
+    color: color(dashboard-search-text);
+
+    &:focus {
+      outline: none;
+    }
+
+    // autoprefixer handles prefixes for placeholder as well
+    &::placeholder {
+      color: color(dashboard-search-placeholder);
+      opacity: 1; // firefox lowers opacity by default
+    }
+  }
+
+  .icon-search {
+    position: absolute;
+    left: 1rem;
+    font-size: 2rem;
+    line-height: $height-dashboard-search;
+    color: color(primary, base);
+  }
+}
+

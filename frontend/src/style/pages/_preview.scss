@@ -1,0 +1,24 @@
+.preview {
+  position: relative;
+
+  &__share {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: z(dropdown);
+    width: 100%;
+    background: rgba(255,255,255,0.7);
+    text-align: right;
+
+    .button {
+      margin-top: 1rem;
+      margin-right: 1rem;
+      font-size: 1rem;
+    }
+
+    .cant-publish-message {
+      margin-top: 1rem;
+      margin-right: 1rem;
+    }
+  }
+}

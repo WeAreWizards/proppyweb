@@ -1,0 +1,25 @@
+{
+  "extends": "tslint:latest",
+  "rules": {
+    "member-access": false,
+    "no-consecutive-blank-lines": [true, 3],
+    "ordered-imports": false,
+    "no-angle-bracket-type-assertion": false,
+    "prefer-for-of": false,
+    "no-string-literal": false,
+    "max-line-length": [true, 140],
+    "max-classes-per-file": false,
+    "array-type": false,
+    "object-literal-sort-keys": false,
+    "arrow-parens": false,
+    "member-ordering": false,
+    "interface-over-type-literal": false,
+    "no-object-literal-type-assertion": false,
+    "no-implicit-dependencies": [true, "dev"],
+    "no-trailing-whitespace": [true, "ignore-template-strings"],
+    "prefer-object-spread": false,
+    "prefer-conditional-expression": false,
+    "no-this-assignment": [true, {"allow-destructuring": true}],
+    "no-shadowed-variable": false
+  }
+}

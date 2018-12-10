@@ -1,0 +1,76 @@
+{% import 'admin/layout.html' as layout with context -%}
+{% extends 'admin/base.html' %}
+
+{% block head_css %}
+  <link href="{{ url_for('static', filename='css/normalize.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/animate.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/green.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/custom2.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block head_tail %}
+  <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/nprogress.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap-progressbar.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/icheck.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/jquery.nicescroll.min.js') }}"></script>
+{% endblock %}
+
+{% block tail_js %}
+  <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+{% endblock %}
+
+{% block page_body %}
+<body class="nav-md">
+  <div class="container body">
+    <div class="main_container">
+      <div class="col-md-3 left_col">
+        <div class="left_col scroll-view">
+          <div class="navbar nav_title" style="border: 0;">
+            <a href="#" class="site_title"><i class="fa fa-paw"></i> <span>{{ admin_view.admin.name }}</span></a>
+          </div>
+          <div class="clearfix"></div>
+          <br />
+          <!-- sidebar menu -->
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+              <h3>General</h3>
+              <ul class="nav child_menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="https://proppy.wearewizards.io/render-notebook/dashboards/signup-stats.ipynb">Signup stats (external)</a></li>
+              </ul>
+            </div>
+              {#
+                Can use {{ admin_view.name }} to set current class on menu link
+              #}
+             <div class="menu_section">
+              <h3>Database</h3>
+              <ul class="nav child_menu">
+                <li {% if admin_view.name == "Company" %}class="current-page red"{% endif %}><a href="/admin/company">Companies</a></li>
+                <li {% if admin_view.name == "User" %}class="current-page"{% endif %}><a href="/admin/user">Users</a></li>
+                <li {% if admin_view.name == "Proposal" %}class="current-page"{% endif %}><a href="/admin/proposal">Proposals</a></li>
+                <li {% if admin_view.name == "Shared Proposal" %}class="current-page"{% endif %}><a href="/admin/sharedproposal">Shared proposals </a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- /sidebar menu -->
+        </div>
+      </div>
+
+      <!-- page content -->
+      <div class="right_col" role="main">
+        <div>
+          {# store the jinja2 context for form_rules rendering logic #}
+          {% set render_ctx = h.resolve_ctx() %}
+
+          {% block body %}{% endblock %}
+        </div>
+      </div>
+      <!-- /page content -->
+    </div>
+  </div>
+{% endblock %}

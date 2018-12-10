@@ -1,0 +1,43 @@
+#editor {
+  position: relative;
+  top: 65px;
+
+  .editor__actions {
+    margin-bottom: 1rem;
+  }
+
+
+  .editor__content {
+    margin-top: 2rem;
+    position: relative;
+    padding-bottom: 25em;
+  }
+}
+
+.editor-colour-bar {
+    height: 5px;
+    width: 100%;
+    position: fixed;
+    top: $height-header;
+    z-index: z(above) + 1; // needs to be above comments
+}
+
+.editor-colour-bar.is-draft {
+    background: color(status, draft) !important;
+}
+
+.editor-colour-bar.is-won {
+    background: color(status, won) !important;
+}
+
+.editor-colour-bar.is-lost {
+    background: color(status, lost) !important;
+}
+
+.editor-colour-bar.is-trash {
+    background: color(status, trash) !important;
+}
+
+.editor-colour-bar.is-sent {
+    background: color(status, sent) !important;
+}

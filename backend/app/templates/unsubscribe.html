@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8">
+    <title>Unsubscribe from Proppy</title>
+    <meta name="description" content="Unsubscribe from Proppy" />
+    <link rel="icon" href="favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="https://proppy.io/landing-page.css" />
+  </head>
+  <body>
+    <form method="POST" style="padding: 20px;">
+      <input type="hidden" value="{{ token }}">
+      <p>
+        Thanks for giving us a try!
+      </p>
+      <p>
+        Click below to unsubscribe <b>{{ email }}</b>
+      </p>
+      <p>
+        <button class="button">Unsubscribe</button>
+      </p>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,127 @@
+// Only print css stuff
+@media print {
+  body {
+    font-size: 12pt !important;
+  }
+
+  a:link:after {
+    content: " (" attr(href) ") ";
+  }
+
+  table {
+    page-break-inside: auto;
+  }
+
+  thead {
+    display: table-header-group;
+    th:nth-child(1) {
+        max-width: 4cm;
+    }
+    th:nth-child(2) {
+        max-width: 3cm;
+    }
+    th:nth-child(3) {
+        max-width: 3cm;
+    }
+    th:nth-child(4) {
+        max-width: 3cm;
+    }
+  }
+
+  ul, ol {
+    margin-left: 2rem !important;
+  }
+
+  .proposal-content {
+    p, li, td {
+      font-size: 1rem !important;
+    }
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto
+  }
+
+  figcaption {
+    display: block;
+    page-break-before: avoid;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    padding-top: 10mm;
+    page-break-before: always;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+    page-break-after: avoid;
+    page-break-before: avoid;
+  }
+
+  figure {
+    margin: 0 !important;
+    padding: 1rem 0 !important;
+  }
+
+  figure {
+    display: block;
+    page-break-inside: avoid;
+    page-break-before: auto;
+    page-break-after: auto;
+    position: relative;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100% !important;
+    page-break-inside: avoid;
+    page-break-before: auto;
+    page-break-after: auto;
+  }
+
+  .restrict-width, .proposal-title {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .block {
+    padding: 0 10mm !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .block__comment, .block__actions {
+    display: none !important;
+  }
+
+  .block-container-highlight {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .iframe-print {
+    display: block !important;
+    padding: 0 1rem;
+    border: 2px solid color(grays, light);
+    text-align: center;
+    word-break: break-all;
+    page-break-inside: avoid;
+  }
+
+  .iframe-container:after {
+    content: "" attr(data-src) "";
+  }
+
+  .powered-by, .icon-print {
+    display: none !important;
+  }
+}

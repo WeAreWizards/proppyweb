@@ -1,0 +1,48 @@
+// An inline editing input
+
+$width-input: 250px;
+
+// The actual input
+.inline-input {
+  max-width: $width-input;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px dashed color(grays, base);
+  padding: 0 1rem;
+  line-height: 1.6;
+  margin-left: 1rem;
+}
+
+// The non-editable view
+.inline-input-value {
+  display: inline-block;
+  margin-left: 1rem;
+  line-height: 1.6;
+  padding: 0 1rem;
+  cursor: pointer;
+  text-rendering: auto; // to match the input
+  border-bottom: 1px dashed transparent;
+  color: color(grays, dark);
+
+  .icon-edit {
+    color: color(grays, light);
+    margin-left: 0.5rem;
+    font-size: 1.25rem;
+    vertical-align: baseline;
+  }
+
+  &:hover {
+    .icon-edit {
+      color: color(primary, base);
+    }
+  }
+
+  &--fullwidth {
+    width: 100%;
+  }
+
+  &--placeholder {
+    opacity: 0.5;
+  }
+}

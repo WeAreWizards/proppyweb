@@ -1,0 +1,6 @@
+{
+  "name": "proppy-pdf-renderer",
+  "version": "1.0.0",
+  "description": "proppy pdf renderer",
+  "main": "main.js"
+}

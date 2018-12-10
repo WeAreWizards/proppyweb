@@ -1,0 +1,16 @@
+// A speech bubble, the bubble is actually an icon
+.speech-bubble {
+  display: inline-block;
+  color: color(primary, base);
+  font-weight: bold;
+  width: 70px;
+
+  .icon-bubble-full {
+    margin-right: 0.25rem;
+    font-size: 20px;
+  }
+
+  &--big {
+    font-size: 1.25rem;
+  }
+}

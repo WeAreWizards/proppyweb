@@ -1,0 +1,117 @@
+// All the buttons have the same style
+
+
+.button {
+  display: inline-block;
+  font-size: fontsize(large);
+  line-height: 1.5;
+  text-align: center;
+  cursor: pointer;
+  border: 0;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1.5rem;
+  background-color: color(primary, base);
+  color: color(button-text);
+  // 2 magic shadows to give the bottom border effect
+  box-shadow: inset 0 -0.1rem 0 rgba(0, 0, 0, 0.1),
+              0 0.1rem 0 rgba(0, 0, 0, 0.075);
+  vertical-align: middle;
+
+  // Occasionally we need to use the button class directly on an `a`
+  // to get the full area click-able.
+  &:hover {
+    text-decoration: none;
+  }
+
+  a, span {
+    color: color(button-text);
+    display: block;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &--disabled, &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:hover {
+    background-color: color(button-bg-hover);
+  }
+
+  &:active {
+    background-color: color(primary, dark);
+  }
+}
+
+// The rounded material-like buttons ('+' etc)
+.button--round {
+  font-size: 24px;
+  height: 56px;
+  min-width: 56px;
+  width: 56px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: auto;
+  line-height: normal;
+  position: relative;
+
+  > span {
+    top: 50%;
+    left: 50%;
+    transform: translate(-12px, -12px);
+    line-height: 24px;
+    width: 24px;
+    position: absolute;
+    vertical-align: middle;
+    font-style: normal;
+    display: inline-block;
+  }
+}
+
+// The + for the block changer and section adder
+.button--editor {
+  height: 40px;
+  width: 40px;
+  font-size: 16px;
+  min-width: 40px;
+  background-color: transparent;
+  color: color(primary, base);
+  box-shadow: none;
+
+  &:hover, &:active {
+    background-color: transparent;
+  }
+
+  span {
+    color: color(primary, base);
+  }
+}
+
+@media print {
+  .button {
+    display: none;
+  }
+}
+
+// disable/deleting button: red background
+.button--dangerous {
+  background-color: color(dangerous);
+
+  &:hover {
+    background-color: lighten(color(dangerous), 10%);
+  }
+
+  &:active {
+    background-color: darken(color(dangerous), 10%);
+  }
+}

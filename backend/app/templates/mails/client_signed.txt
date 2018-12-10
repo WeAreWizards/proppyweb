@@ -1,0 +1,8 @@
+Congratulations!
+
+{{ name }} just signed the following proposal: {{ title }}.
+This proposal is now read-only (it cannot be edited or published again) and has been set to Won.
+
+Good luck with the project!
+
+{% include "mails/partials/twitter_footer.txt" %}

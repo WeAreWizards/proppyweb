@@ -1,0 +1,55 @@
+// The toolbar used in the editor
+.toolbar-buttons {
+
+  button {
+    border: none;
+    background: none;
+    box-shadow: none;
+    height: 42px;
+    line-height: 42px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+  }
+
+  .is-active {
+    color: color(primary, base);
+  }
+
+
+  span.separator {
+      width: 0px;
+      height: 30px;
+      margin: 5px 10px 0px 10px;
+      border-left: 1px solid color(grays, base);
+  }
+}
+
+.toolbar-link {
+  height: 42px;
+  line-height: 42px;
+  width: 250px;
+
+  form {
+    width: 199px;
+    display: inline-block;
+  }
+
+  input {
+    @include reset-input;
+    width: 100%;
+    padding: 0;
+    font-size: 0.9rem;
+    color: white;
+  }
+
+  button {
+    border: none;
+    background: none;
+    box-shadow: none;
+    height: 42px;
+    line-height: 42px;
+    font-weight: bold;
+    color: white;
+  }
+}

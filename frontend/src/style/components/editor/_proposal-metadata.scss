@@ -1,0 +1,37 @@
+// clients/status/tags
+
+
+.editor__metadata {
+  h1 {
+    // less margin than on a proposal
+    margin-bottom: 2rem;
+  }
+
+  #proposal-title {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: $h1-font-size;
+    border: 0;
+    outline: none;
+    font-weight: bold;
+    width: 100%;
+  }
+}
+
+
+.editor__client {
+  text-align: center;
+  padding-bottom: 1rem;
+
+  [class^="icon-"], [class*=" icon-"] {
+    display: inline-block;
+    margin-right: 0.5rem;
+    color: color(primary, base);
+  }
+}
+
+.editor__tags {
+  text-align: center;
+  border-bottom: 2px solid color(grays, light);
+  padding-bottom: 2rem;
+}

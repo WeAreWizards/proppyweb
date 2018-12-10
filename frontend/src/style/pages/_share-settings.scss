@@ -1,0 +1,57 @@
+.share-settings {
+  width: 1000px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  h4 {
+    margin-bottom: 1.5rem;
+  }
+
+  &__send {
+    text-align: right;
+
+    .button {
+      margin-left: 2rem;
+    }
+  }
+
+  .align-right {
+    text-align: right;
+  }
+
+  .copy-link {
+    position: relative;
+    // override some of text-input bits
+    max-width: 100%;
+    margin: 0;
+    margin-top: 1rem;
+
+    input {
+      display: inline-block;
+      max-width: 500px;
+      margin-right: 2rem;
+      margin-top: 0;
+    }
+
+    button {
+      margin-bottom: 0;
+    }
+
+    .icon-duplicate {
+      position: absolute;
+      cursor: pointer;
+      font-size: 2rem;
+      left: 450px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: color(primary, base);
+    }
+
+    .popover {
+      position: absolute;
+      left: 425px;
+      top: -30px;
+    }
+  }
+}

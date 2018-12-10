@@ -1,0 +1,65 @@
+/*
+  DIVIDER
+  -------
+
+  Something that looks like a hr but has text in the middle
+*/
+
+/// Creates a <hr> equivalent with text in the middle
+///
+/// @param {Color} $color [black]
+///   Color of the text and line
+/// @param {Number} $margin [1rem]
+///   Margin between the text and the lines
+@mixin divider($color: black, $margin: 1rem, $line-type: solid) {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  color: $color;
+  // Same margin as hr in _typography.scss
+  margin: 2.5rem 0 2rem;
+
+  &:after, &:before {
+    content: "";
+    flex: 1;
+    margin: .7rem 0;
+    border-top: 1px $line-type $color;
+  }
+
+  &:before {
+    margin-right: $margin;
+  }
+
+  &:after {
+    margin-left: $margin;
+  }
+}
+
+.primary-divider {
+  @include divider($color: color(primary, base), $line-type: dashed);
+
+  .button--editor {
+    border: 2px dashed color(primary, base);
+  }
+
+  button {
+    margin-right: 1rem;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+.proposal-divider {
+  margin: 0;
+  // Need a large area so hover works and people can delete
+  // the divider.
+  padding: 2rem 0;
+
+  hr {
+    height: 2px;
+    background: color(grays, light);
+    border: 0;
+  }
+}

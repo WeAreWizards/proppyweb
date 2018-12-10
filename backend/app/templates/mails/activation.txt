@@ -1,0 +1,8 @@
+Hi {{ username }}
+
+Thanks for signing up to Proppy!
+
+Please go to the following link to activate your account {{ base_url }}/activate/{{ token }}
+
+
+{% include "mails/partials/twitter_footer.txt" %}

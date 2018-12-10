@@ -1,0 +1,8 @@
+Congratulations!
+
+{{ title }} has been paid!.
+This proposal has been set to Won.
+
+Good luck with the project!
+
+{% include "mails/partials/twitter_footer.txt" %}

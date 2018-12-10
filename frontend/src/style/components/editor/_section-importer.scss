@@ -1,0 +1,75 @@
+.section-importer {
+  &__results {
+    ul {
+      margin: 0;
+    }
+
+    li {
+      list-style: none;
+      cursor: pointer;
+      padding: 0.5rem 0.75rem;
+
+      &:hover {
+        background: color(grays, xxlight);
+      }
+    }
+    li.selected {
+      background-color: color(primary, xlight);
+      color: color(block-changer-text);
+
+      &:hover {
+        background-color: color(primary, xlight);
+        color: color(block-changer-text);
+      }
+    }
+
+    // TODO max-height 30vh will be broken on most screens. I
+    // tried using flex box but the contents would always overflow.
+    min-height: 30vh;
+    max-height: 40vh;
+    overflow: auto;
+  }
+
+  &__results__summary {
+    line-height: 1.5;
+    fonr-size: 0.9rem;
+    color: color(grays, base);
+
+    .search-highlight {
+      color: color(primary, base);
+    }
+  }
+
+  &__result-title {
+    color: color(grays, base);
+    border-bottom: 2px solid color(grays, light);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  .text-input {
+    margin-bottom: 2rem;
+  }
+
+  &__search {
+    position: relative;
+
+    input[type="search"] {
+      padding-right: 4rem; // for the icon
+      box-sizing: border-box;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .icon-search {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 2rem;
+      color: color(primary, base);
+    }
+  }
+}

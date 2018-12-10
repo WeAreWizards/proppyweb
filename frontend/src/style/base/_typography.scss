@@ -1,0 +1,266 @@
+$base-font-size: 16px;
+$base-line-height: 1.5;
+$leading: $base-line-height * 1rem;
+
+$main-font: 'Lato', sans-serif; // used pretty much everywhere
+$serif: "ff-tisa-web-pro", Times, "Times New Roman", serif; // used for body in proposals
+
+
+$fontsizes2: (
+  xxsmall: 0.579rem,
+  xsmall: 0.694rem,
+  small: 0.833rem,
+  base: 1rem,
+  large: 1.333rem,
+  xlarge: 1.777rem,
+  xxlarge: 2.369rem,
+);
+
+
+$h1-font-size: 3rem;
+$h2-font-size: 2.5rem;
+$h3-font-size: 1.94rem;
+$h4-font-size: 1.56rem;
+$h5-font-size: 1.25rem;
+$h6-font-size: 1rem;
+$small-font-size: 80%;
+
+
+html {
+  font-family: $main-font;
+  font-size: $base-font-size;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  color: color(text);
+}
+
+@media screen and (max-width: 500px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+
+// Links typography
+a, a:visited {
+  text-decoration: none;
+  color: color(primary, base);
+
+  img {
+    border: none;
+  }
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+em,
+i {
+  font-style: italic;
+  line-height: inherit;
+}
+
+strong,
+b {
+  font-weight: bold;
+  line-height: inherit;
+}
+
+small {
+  font-size: $small-font-size;
+  line-height: inherit;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+  line-height: 1.4;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: $h1-font-size;
+}
+h2 {
+  font-size: $h2-font-size;
+}
+h3 {
+  font-size: $h3-font-size;
+}
+h4 {
+  font-size: $h4-font-size;
+}
+h5 {
+  font-size: $h5-font-size;
+}
+h6 {
+  font-size: $h6-font-size;
+}
+
+ul, ol {
+  line-height: 1.6;
+  list-style-position: outside;
+  padding: 0;
+  margin-left: 2rem;
+}
+
+li {
+  font-size: inherit;
+}
+
+blockquote {
+  margin-top: 1.25rem;
+  line-height: 1.6;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+table {
+    margin-top: 1.25rem;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+td,
+th {
+    padding: 0;
+    line-height: 1.6;
+}
+
+figcaption {
+  font-style: italic;
+}
+
+
+// PROPOSAL TYPOGRAPHY
+// proposal specific typography, for editor/preview/shared page
+.proposal-content {
+  ul, ol {
+    margin-left: 0;
+
+    .block {
+      padding-left: 2rem;
+    }
+  }
+
+  p, li, td {
+    font-family: $serif;
+    font-size: 1.25rem;
+    word-break: break-word;
+  }
+
+  li {
+    padding-left: 10px;
+  }
+
+  h1, h2, figcaption {
+    text-align: center;
+    word-break: break-word;
+  }
+
+  h2 {
+    margin-top: 2rem;
+  }
+
+  h3 {
+    margin-top: 1.5rem;
+  }
+
+  h4 {
+    margin-top: 1.25rem;
+  }
+
+  figure {
+    text-align: center;
+    margin: 2.5rem 0;
+  }
+
+  img {
+    max-height: 500px;
+    width: auto;
+    max-width: 100%
+  }
+
+  blockquote {
+    padding: 1rem;
+    padding-left: 0;
+    margin-left: 0;
+    position: relative;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+
+    .icon-quotes-right {
+      position: absolute;
+      top: 0;
+      transform: rotate(180deg);
+      color: color(primary, base);
+    }
+
+    p {
+      font-family: $main-font;
+      font-style: italic;
+      font-weight: bold;
+      margin-top: 0;
+      margin-left: 1.5rem;
+      color: color(primary, base);
+    }
+
+    // the source
+    footer {
+      font-family: $main-font;
+      color: color(grays, base);
+      margin-left: 1.5rem;
+
+      &:before {
+        content: '\2014 \00A0';
+      }
+    }
+  }
+
+  iframe {
+    margin-top: 1rem;
+    min-height: 500px;
+  }
+
+  // We can't autoresize iframe because of cross domain
+  // So we do it in css based on the url of the source.
+  // Dodgy but the only way I can think of
+  iframe[src*='https://www.youtube.com'] {
+    min-height: 500px;
+  }
+  iframe[src*='https://invis.io'] {
+    min-height: 750px;
+  }
+  iframe[src*='https://w.soundcloud.com'] {
+    min-height: 180px;
+  }
+  iframe[src*='https://player.vimeo.com'] {
+    min-height: 360px;
+  }
+}
+
+// Change size of embed content on small screens
+@media screen and (max-width: 500px) {
+  .proposal-content {
+    iframe[src*='https://www.youtube.com'] {
+      min-height: 300px;
+    }
+    iframe[src*='https://invis.io'] {
+      min-height: 750px;
+    }
+    iframe[src*='https://w.soundcloud.com'] {
+      min-height: 100px;
+    }
+  }
+}

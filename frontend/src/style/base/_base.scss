@@ -1,0 +1,77 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background-color: color(background);
+}
+
+.primary {
+  color: color(primary, base);
+}
+
+.right {
+  float: right;
+}
+
+#react-container {
+  min-height: 100vh;
+}
+
+// The logged out container is constrained, ie fixed width
+// and automatic centering
+// settings uses that as well
+#constrained-container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+// Icons are not really aligned by default
+.align-icons {
+  > span {
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 24px;
+  }
+}
+
+.restrict-width {
+  width: $width-editor;
+  margin: auto;
+  position: relative;
+}
+
+@media screen and (max-width: 900px) {
+  .restrict-width {
+    width: 100%;
+  }
+}
+
+// Border color depending on status are shared on dashboard and editor
+.is-draft {
+  border-color: color(status, draft) !important;
+}
+.is-won {
+  border-color: color(status, won) !important;
+}
+.is-lost {
+  border-color: color(status, lost) !important;
+}
+.is-trash {
+  border-color: color(status, trash) !important;
+}
+.is-sent {
+  border-color: color(status, sent) !important;
+}
+
+iframe {
+  width: 100%;
+}
+
+
+span.clickable {
+  color: color(primary, base);
+  cursor: pointer;
+}

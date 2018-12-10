@@ -1,0 +1,12 @@
+Hi there,
+
+I'm Vincent, one of the co-founders. I hope you are enjoying Proppy.
+
+We want to make Proppy the best possible tool to write proposals, and to accomplish that we would love to get your feedback.
+What did you like or dislike? Please let us know!
+
+All the best from London,
+Vincent
+
+{% include "mails/partials/twitter_footer.txt" %}
+Unsubscribe: {{ base_url }}/unsubscribe?token={{ token }}

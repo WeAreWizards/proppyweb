@@ -1,0 +1,14 @@
+// NOT the form labels, but a rectangle with some data inside,
+// such as a number
+// TODO: unused?
+
+.label {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  font-size: fontsize(small);
+  line-height: 1;
+  background: color(background);
+  border: 1px solid color(primary, base);
+  border-radius: 2px;
+  color: color(primary, base);
+}

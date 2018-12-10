@@ -1,0 +1,71 @@
+.block-changer-toggle {
+  position: absolute;
+  left: -47px;
+  z-index: z(above);
+
+  .icon-add {
+    color: color(primary, base);
+    cursor: pointer;
+    font-size: 2rem;
+  }
+}
+
+.block-changer__menu {
+  width: 250px;
+  background: color(primary, base);
+  padding: 2px;
+  border-radius: 4px;
+  z-index: z(above) - 1;
+  position: absolute;
+  margin: 0;
+
+  .block-changer__hint {
+    display: inline-block;
+    color: white;
+    padding: 5px;
+  }
+
+  .block-changer__choices {
+    height: auto;
+    max-height: 300px;
+    margin: 0;
+    overflow-y: auto;
+    background: white;
+  }
+
+  .block-changer__choice {
+    padding: 0.5rem;
+    cursor: pointer;
+
+    span {
+      font-size: 1rem;
+    }
+
+    [class^="icon-"], [class*=" icon-"] {
+      display: inline-block;
+      margin-right: 1rem;
+    }
+
+    &--disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+
+    &--selected {
+      background-color: color(primary, xlight);
+      color: color(block-changer-text);
+    }
+  }
+}
+
+.embed-preview {
+  max-height: 400px;
+
+  iframe {
+    min-height: 200px;
+  }
+
+  .iframe-min-height {
+    min-height: 400px;
+  }
+}

@@ -1,0 +1,33 @@
+// A tag is almost like a label, except it can also have an icon to remove itself
+// and some margin since we would have several of them in a row typically
+
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  font-size: fontsize(small);
+  line-height: 1;
+  background: color(background);
+  border: 1px solid color(primary, base);
+  border-radius: 20px;
+  color: color(primary, base);
+  margin-right: 0.5rem;
+
+  &--is-action {
+    cursor: pointer;
+
+    &:hover {
+      color: color(button-text);
+      background-color: color(primary, base);
+      transition: all 0.1s ease-in;
+    }
+  }
+
+  &--is-removable {
+    [class^="icon-"], [class*=" icon-"] {
+      display: inline-block;
+      margin-right: 0.2rem;
+      font-size: fontsize(large);
+      cursor: pointer;
+    }
+  }
+}

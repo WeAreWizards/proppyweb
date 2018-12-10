@@ -1,0 +1,13 @@
+
+<hr>
+
+<h4>{{ client }} posted a new comment on {{ title }}</h4>
+
+<p style="font-size:small;-webkit-text-size-adjust:none;color:#777;">
+    {{ comment }}
+</p>
+
+<p>Click <a href="{{ base_url }}/p/{{ share_uid }}">here</a> to go to your published proposal</p>
+
+{% include "mails/partials/proposal_view_action.html" %}
+{% include "mails/partials/twitter_footer.html" %}

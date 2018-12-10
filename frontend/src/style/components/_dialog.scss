@@ -1,0 +1,45 @@
+// Put a dialog half the size of the viewport in the middle
+.dialog {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  max-width: 96vw;
+  max-height: 96vh;
+  box-shadow: 0 19px 60px rgba(0,0,0,0.30), 0 15px 20px rgba(0,0,0,0.22);
+  background-color: white;
+  opacity: 1;
+  position: relative;
+  // This puts it above the overlay for some reason i don't know about
+  transform: translateY(0%);
+  padding: 2.5rem;
+  z-index: 20;
+
+  &__actions {
+    text-align: right;
+    margin-top: 4rem;
+
+    button {
+      margin-right: 1rem;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    cursor: pointer;
+  }
+
+  &__title {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  p {
+    font-size: fontsize(large);
+  }
+}

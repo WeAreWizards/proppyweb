@@ -1,0 +1,140 @@
+{% extends 'admin/model/list.html' %}
+{% import 'admin/model/layout.html' as model_layout with context %}
+{% import 'admin/row_actions.html' as row_actions with context %}
+
+
+{% block model_list_table %}
+    <div class="page-title">
+        <div class="title_left">
+            <h3>{{ admin_view.name }}</h3>
+        </div>
+
+        {# Add search #}
+        <div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right">
+                <form method="GET" action="{{ return_url }}" class="navbar-form navbar-left" role="search">
+                    {% if sort_column is not none %}
+                    <input type="hidden" name="sort" value="{{ sort_column }}">
+                    {% endif %}
+                    {% if sort_desc %}
+                    <input type="hidden" name="desc" value="{{ sort_desc }}">
+                    {% endif %}
+                    {% if search %}
+                    <div class="input-group">
+                        <input type="text" name="search" value="{{ search }}" class="form-control" placeholder="{{ _gettext('Search') }}">
+                        <a href="{{ clear_search_url }}" class="input-group-addon clear"><span class="fa fa-times glyphicon glyphicon-remove"></span></a>
+                    </div>
+                    {% else %}
+                    <div class="form-group">
+                        <input type="text" name="search" value="" class="form-control" placeholder="{{ _gettext('Search') }}">
+                    </div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>List of {{ admin_view.name }}</h2>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <table class="table">
+                        <thead>
+                            {% block list_row_actions_header %}
+                                {% if admin_view.can_delete %}
+                                    <th class="column-header">&nbsp;</th>
+                                {% endif %}
+                            {% endblock %}
+
+                            {% set column = 0 %}
+                            {% for c, name in list_columns %}
+                                <th class="column-header col-{{c}}">
+                                    {% if admin_view.is_sortable(c) %}
+                                        {% if sort_column == column %}
+                                            <a href="{{ sort_url(column, True) }}" title="{{ _gettext('Sort by %(name)s', name=name) }}">
+                                                {{ name }}
+                                                {% if sort_desc %}
+                                                    <span class="fa fa-chevron-up glyphicon glyphicon-chevron-up"></span>
+                                                {% else %}
+                                                    <span class="fa fa-chevron-down glyphicon glyphicon-chevron-down"></span>
+                                                {% endif %}
+                                            </a>
+                                        {% else %}
+                                            <a href="{{ sort_url(column) }}" title="{{ _gettext('Sort by %(name)s', name=name) }}">{{ name }}</a>
+                                        {% endif %}
+                                    {% else %}
+                                        {{ name }}
+                                    {% endif %}
+                                    {% if admin_view.column_descriptions.get(c) %}
+                                        <a class="fa fa-question-circle glyphicon glyphicon-question-sign"
+                                           title="{{ admin_view.column_descriptions[c] }}"
+                                           href="javascript:void(0)" data-role="tooltip"
+                                        ></a>
+                                    {% endif %}
+                                </th>
+                        {% set column = column + 1 %}
+                        {% endfor %}
+                        </thead>
+                        <tbody>
+                            {% for row in data %}
+                                <tr>
+                                    {% block list_row scoped %}
+                                        {% block list_row_actions_column scoped %}
+                                            {% if admin_view.can_delete %}
+                                                <td class="list-buttons-column">
+                                                    {{ row_actions.delete_row("", get_pk_value(row), row) }}
+                                                </td>
+                                            {%- endif -%}
+                                        {% endblock %}
+
+                                        {% for c, name in list_columns %}
+                                            <td class="col-{{c}}">
+                                            {% if admin_view.is_editable(c) %}
+                                                {% set form = list_forms[get_pk_value(row)] %}
+                                                {% if form.csrf_token %}
+                                                {{ form[c](pk=get_pk_value(row), display_value=get_value(row, c), csrf=form.csrf_token._value()) }}
+                                                {% else %}
+                                                {{ form[c](pk=get_pk_value(row), display_value=get_value(row, c)) }}
+                                                {% endif %}
+                                            {% else %}
+                                            {{ get_value(row, c) }}
+                                            {% endif %}
+                                            </td>
+                                        {% endfor %}
+                                    {% endblock %}
+                                </tr>
+                                {% else %}
+                                <tr>
+                                    <td colspan="999">
+                                        {% block empty_list_message %}
+                                        <div class="text-center">
+                                            {{ admin_view.get_empty_list_message() }}
+                                        </div>
+                                        {% endblock %}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                        </tbody>
+                    </table>
+                        {% block list_pager %}
+                        {% if num_pages is not none %}
+                        {{ lib.pager(page, num_pages, pager_url) }}
+                        {% else %}
+                        {{ lib.simple_pager(page, data|length == page_size, pager_url) }}
+                        {% endif %}
+                        {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block model_menu_bar %}
+{% endblock %}

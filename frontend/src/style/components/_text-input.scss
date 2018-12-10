@@ -1,0 +1,144 @@
+// Text inputs have an animation effect and wooosh
+// Taken from http://tympanus.net/Development/TextInputEffects/index2.html
+// the Yoshiko one with some changes (ie no background color but border colors)
+
+// An input needs to look like the following in HTML:
+// <div class="text-input">
+//   <input type="text" id="hey" />
+//   <label for="hey">My Label</label>
+// </div>
+// Doesn't use BEM notations here as we don't want to vary from that structure
+.text-input {
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  position: relative;
+  color: color(text);
+  text-align: left;
+
+  input {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0;
+    font-weight: normal;
+    background-color: transparent;
+    appearance: none;
+    border: 2px solid color(grays, light);
+    transition: border-color 0.25s;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:invalid {
+      box-shadow: none;
+    }
+
+    &:-webkit-autofill {
+      // Hack to avoid the yellow background color of chrome.
+      // Setting background-color does not work
+      -webkit-box-shadow: 0 0 0 50px white inset;
+    }
+  }
+
+  textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid color(grays, light);
+    outline: none;
+  }
+
+  label {
+    color: color(primary, base);
+    width: 100%;
+    text-align: left;
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    padding-left: 1rem;
+    pointer-events: none;
+    user-select: none;
+    overflow: hidden;
+    transform: translate3d(0, 2.6rem, 0);
+    transition: transform 0.3s;
+    // antialiased makes it blurry on my laptop in chrome, maybe depends on font?
+    // -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-transform: uppercase;
+  }
+
+  .note {
+    display: block;
+    font-size: fontsize(small);
+    color: color(grays, base);
+    padding-top: 5px;
+  }
+
+  .password-visibility {
+    cursor: pointer;
+    text-transform: uppercase;
+    float: right;
+    color: color(primary, base);
+
+    [class^="icon-"], [class*=" icon-"] {
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Here we use 2 classes for selectivity purposes.
+// Putting it in nested in the .text-input above would result in needing
+// !important which is never a good thing
+.text-input.text-input--active {
+  input, textarea {
+    border-color: color(primary, base);
+  }
+
+  label {
+    transform: translate3d(0, -5px, 0);
+  }
+}
+
+.text-input.text-input--error {
+  input, textarea {
+    border-color: color(error);
+  }
+
+  label {
+    color: color(error);
+  }
+
+  // The error message
+  .error-message {
+    font-size: fontsize(small);
+    color: color(error);
+  }
+}
+
+.text-input.text-input--disabled {
+  background: color(grays, xxlight);
+
+  label {
+    color: color(grays, base);
+  }
+}
+
+.currency-input {
+  label {
+    color: color(primary, base);
+    -moz-osx-font-smoothing: grayscale;
+    text-transform: uppercase;
+    padding-left: 1rem;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .select--currency {
+    max-width: 100%;
+    margin-top: 5px;
+  }
+}

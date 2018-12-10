@@ -1,0 +1,17 @@
+Hi {{ username }},
+
+Thanks for signing up for Proppy and we hope you are enjoying it.
+
+This is just an email to let you know that your free trial is ending in 4 days.
+
+We'd love to have you as a customer! Visit the {{ base_url }}/settings/billing page
+to sign up to one of the plans.
+
+If you decide not to, you will still be able to access your proposals and your published ones
+will stay online.
+
+As always, you can just reply to this email if you have any questions or feedback.
+
+Tom & Vincent.
+
+Unsubscribe: {{ base_url }}/unsubscribe?token={{ token }}

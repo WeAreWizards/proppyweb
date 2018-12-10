@@ -1,0 +1,60 @@
+.email-form {
+  margin-bottom: 2rem;
+
+  &__form, &__preview {
+    width: 50%;
+    margin-top: 2rem;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__preview {
+    padding: 0 1rem;
+  }
+
+  table {
+    background-color: #fbfbfb;
+    width: 100%;
+    margin-top: 0;
+    border: 1px solid #cfcfcf;
+    font-size: 14px;
+
+    td {
+      vertical-align: top;
+      padding: 8px;
+    }
+
+    tr td:first-child {
+      // Hack to get the first td to take the least possible space
+      width: 1px;
+    }
+
+    .title {
+      background-color: color(grays, dark);
+      color: white;
+    }
+
+    .greyed {
+      color: color(grays, base);
+    }
+
+    .subject {
+      border-top: 1px solid #cfcfcf;
+      border-bottom: 1px solid #cfcfcf;
+    }
+  }
+
+  .text-input {
+    margin-left: 0;
+  }
+
+  pre {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+  }
+}

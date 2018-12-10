@@ -1,0 +1,1 @@
+{"type": "RSA_PRIV", "encrypted": false, "purpose": "SIGN_AND_VERIFY", "name": "proppy-signature-key", "versions": [{"versionNumber": 1, "exportable": false, "status": "PRIMARY"}]}

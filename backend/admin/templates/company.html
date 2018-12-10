@@ -1,0 +1,30 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+    <h1>{{ company.name }}</h1>
+    <p>Created: {{ company.created_at }}. trialHasEnded: {{ data.trialHasEnded }}.</p>
+    <p>It has {{ data.numberUsers }} active user(s)</p>
+    <div>
+        <h2>Integrations</h2>
+        <ul>
+            <li>Slack: {{ data.integrations.slack }}</li>
+            <li>ZohoCRM: {{ data.integrations.zohocrm }}</li>
+            <li>PipeDrive: {{ data.integrations.pipedrive }}</li>
+            <li>Insightly: {{ data.integrations.insightly }}</li>
+        </ul>
+        <h2>Changed branding?</h2>
+        <p>
+          Changes: {{ changed_branding }}
+        </p>
+
+        <hr />
+
+        <h2>Proposals</h2>
+        <ul>
+        {% for p in proposals %}
+            <li><b>{{ p.title }}</b> - {{ p.status | upper }} - Tags: {{ p.tags }}</li>
+        {% endfor %}
+        </ul>
+        <h2>Shared proposals</h2>
+
+    </div>
+{% endblock %}

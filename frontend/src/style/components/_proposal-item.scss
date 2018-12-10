@@ -1,0 +1,131 @@
+// A row on the dashboard, containing data about a specific
+// proposal and some actions
+
+.proposal-item {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid color(grays, light);
+  margin-bottom: 1rem;
+  lost-utility: clearfix;
+
+  &__container {
+    border-left: 5px solid;
+    padding-left: 1rem;
+  }
+
+  &__title {
+    color: color(primary, base);
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+  }
+
+  .signed-proposal-title {
+    cursor: inherit;
+    color: color(text);
+  }
+
+  &__client {
+    cursor: pointer;
+    color: color(primary, base);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .meta-items {
+    > span:not(:first-child) {
+      padding-left: 1rem;
+      border-left: 1px solid color(grays, light);
+
+    }
+  }
+
+  .meta-item {
+    padding-right: 1rem;
+  }
+
+  .add-left-border {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-left: 1px solid color(grays, light);
+  }
+
+  [class^="icon-"], [class*=" icon-"] {
+    display: inline-block;
+    margin-right: 0.5rem;
+    color: color(primary, base);
+  }
+
+  &__meta {
+    color: color(grays, base);
+
+    a {
+      cursor: pointer;
+    }
+
+    .icon-open, .icon-client, .icon-show {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      vertical-align: sub;
+    }
+
+    .icon-client {
+      margin-right: 0.25rem;
+    }
+
+    .last-edit {
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__actions {
+    text-align: right;
+    font-size: 0.85rem;
+
+    // React wraps text in span so we need to only care about the direct descendants
+    .proposal-action {
+      cursor: pointer;
+      padding-left: 1rem;
+      margin-left: 1rem;
+      border-left: 1px solid color(grays, light);
+
+      &:first-of-type {
+        border-left: none;
+        margin-left: 0;
+      }
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:hover {
+        color: color(primary, base);
+      }
+    }
+  }
+
+  .select .align-icons {
+    line-height: 28px; // fixes alignment with icon in select value
+  }
+}
+
+// Layout of the upper part of the proposal item
+.proposal-item__upper {
+  margin-bottom: 0.5rem;
+}
+
+// Layout of the lower part 50/50
+.proposal-item__lower {
+  lost-utility: clearfix;
+  margin-top: 1rem;
+
+  .proposal-item__tags {
+    lost-column: 2/5;
+  }
+
+  .proposal-item__actions {
+    lost-column: 3/5;
+  }
+}

@@ -1,0 +1,107 @@
+
+/// Colours map, gathering all colors by palette
+$colours: (
+  background: white,
+  text: #454B4F,
+  button-text: white,
+  button-bg-hover: #59D99A,
+  select-hover-text: white,
+  dashboard-search-placeholder: #50A97D,
+  dashboard-search-text: #317D57,
+  block-changer-text: #317D57,
+  error: #DF2503,
+  dangerous: #DF2503,
+  primary: ( // green
+    xlight: #EDF7F2,
+    light: #C1EDD7, // used for the search bar
+    base: #40C181,
+    dark: #26975F,
+  ),
+  grays: (
+    xxlight: #f1eded,
+    xlight: #C4C4C4,
+    light: #CCCCCC,
+    base: #888888,
+    dark: #353A3E  // used in panel for example
+  ),
+  status: (
+    active: #FFC1DC,
+    draft: #93E8FF,
+    sent: #FFF284,
+    won: #59D99A,
+    lost: #FF6B6B,
+    trash: #D8A995,
+    template: #9274a0,
+  ),
+  editor-highlight: (
+    actions: #EDF7F2,
+    delete: #FFF3F3,
+  ),
+);
+
+/// Retrieve color from $colors map ie. `color(primary, base)`
+@function color($name, $variant:null) {
+  @if not map-has-key($colours, $name) {
+    @error 'There is no colour or palette named `#{$name}` in $colours.';
+  }
+
+  @if ($variant != null) {
+    @if not map-has-key(map-get($colours, $name), $variant) {
+      @error 'There is no variant named `#{$variant}` in `#{$name}` palette.';
+    }
+    @return map-get(map-get($colours, $name), $variant);
+  } @else {
+    @return map-get($colours, $name);
+  }
+}
+
+/// Z-indexes map, gathering all Z layers of the application
+$z-indexes: (
+  modal: 5000,
+  dropdown: 4000,
+  above: 1000,
+  default: 1,
+  below: -1,
+);
+
+/// Get a z-index value from a layer name
+@function z($layer) {
+  @if not map-has-key($z-indexes, $layer) {
+    @error 'There is no layer named `#{$layer}` in $z-indexes. '
+         + 'Layer should be one of #{map-keys($z-indexes)}.';
+  }
+  @return map-get($z-indexes, $layer);
+}
+
+
+// Unfortunate duplicate but those are used in the app, not in the proposals
+$fontsizes: (
+  xsmall: 0.75rem,
+  small: 0.85rem,
+  base: 1rem,
+  large: 1.25rem,
+  xlarge: 1.5rem,
+);
+
+/// Get a font-size from the size name
+@function fontsize($name) {
+  @if not map-has-key($fontsizes, $name) {
+    @error 'There is no font size named `#{$name}` in $fontsizes. '
+         + 'Font size should be one of #{map-keys($fontsizes)}.';
+  }
+  @return map-get($fontsizes, $name);
+}
+
+
+// Some heights we need to calculate the height of the content using calc
+$height-header: 60px;
+$height-dashboard-search: 90px;
+$width-editor: 800px;
+
+$toc-width: 200px;
+$comments-width: 250px + 32px; // 32px === 2rem for the margin
+
+$company-logo-size: 150px;
+
+$cover-min-height: 100px;
+$cover-max-height: 500px;

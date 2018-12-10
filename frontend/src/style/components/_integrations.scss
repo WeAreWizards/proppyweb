@@ -1,0 +1,110 @@
+.integrations-container {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .integration {
+    width: 30%;
+    height: 175px;
+    padding: 1rem;
+    border: 2px solid color(grays, xxlight);
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    transition: all 0.1s linear;
+
+    &__logo {
+      height: 100px;
+      line-height: 100px;
+    }
+
+    img {
+      max-width: 100%;
+      vertical-align: middle;
+    }
+
+    .slack-logo {
+      width: 100px;
+    }
+
+    h3 {
+      margin-bottom: 0;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    &:hover {
+      background-color: color(primary, xlight);
+    }
+
+    &--active {
+      border-color: color(primary, base);
+    }
+  }
+}
+
+.integration-dialog {
+  &__header {
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 150px;
+
+    img {
+      width: 150px;
+      display: inline-block;
+      margin-right: 1rem;
+    }
+
+    > div {
+      display: inline-block;
+      text-align: left;
+    }
+
+    h3, p {
+      margin-top: 0;
+    }
+  }
+
+  .oauth-button-container {
+    text-align: center;
+  }
+
+  .oauth-button {
+    cursor: pointer;
+  }
+
+  .slack-channel, .slack-team {
+    font-weight: bold;
+  }
+
+  form {
+    margin-top: 3rem;
+  }
+
+  .slack-form {
+    margin-top: 1rem;
+
+    .button {
+      margin-top: 1rem;
+    }
+
+    label {
+      display: block;
+      font-size: 1.25rem;
+      cursor: pointer;
+
+      input {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .disable-integration  {
+    text-align: center;
+  }
+}

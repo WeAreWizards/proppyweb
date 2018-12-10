@@ -1,0 +1,22 @@
+.font-picker {
+  &__loading {
+    text-align: center;
+  }
+
+  &__tip {
+    margin-top: 2rem;
+  }
+
+  &__preview {
+    margin-top: 1.5rem;
+    width: 100%;
+    min-height: 100px;
+    border: 0;
+    outline: none;
+    resize: none;
+    font-size: 1.25rem;
+    text-align: center;
+    overflow: hidden;
+    padding: 1rem;
+  }
+}
